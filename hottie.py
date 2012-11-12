@@ -8,11 +8,12 @@ from inspect import isclass, isfunction
 from os.path import exists, getmtime
 import sys
 from time import sleep
+from weakref import WeakSet
 
 
 functions = {}
 classes = {}
-instances = defaultdict(list)
+instances = defaultdict(WeakSet)
 module_mtimes = {}
 
 
@@ -29,7 +30,7 @@ def class_decorator(cls, key):
     @wraps(old_init)
     def new_init(self, *args, **kwargs):
         old_init(self, *args, **kwargs)
-        instances[key].append(self)
+        instances[key].add(self)
 
     cls.__init__ = new_init
 
