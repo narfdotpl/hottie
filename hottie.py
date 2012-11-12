@@ -52,7 +52,8 @@ def hot(obj):
     elif isfunction(obj):
         decorator = function_decorator
     else:
-        raise TypeError('?!')
+        raise TypeError('@hot decorator can be used only on classes '
+                        'and functions.')
 
     module = sys.modules[obj.__module__]
     remember_mtime(module)
