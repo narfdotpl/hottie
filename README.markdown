@@ -3,7 +3,7 @@ hottie
 
 Code hot-swapping for Python 2.7 classes and functions.
 
-pre-v0.1.0
+v0.1.0
 
 **GOAL**: Feel a little bit like [Bret Victor][].
 
